@@ -16,11 +16,11 @@ console.log(`Current time is : ${hour} ${amPm} : ${minute} : ${seconds}`);
 
 // 2. Write a JavaScript program to print the current window contents.  
 
-// function printCurrentWindow(){
-//     window.print();
-// }
+function printCurrentWindow(){
+    window.print();
+}
 
-// printCurrentWindow()
+printCurrentWindow()
 
 // 3. Write a JavaScript program to get the current date.  
 // Expected Output :
@@ -65,29 +65,21 @@ console.log(`Area of a triangle is ${area}`);
 
 // 5. Write a JavaScript program to rotate the string 'w3resource' in the right direction. This is done by periodically removing one letter from the string end and attaching it to the front.  
 
-// const rotateString = function(){
+const rotateString = function(){
 
-//   const text = document.getElementById('text');
-//   element = text.textContent;
+  const text = document.getElementById('text');
+  element = text.textContent;
 
-//   setInterval(()=>{
+  setInterval(()=>{
      
-//     element = element.slice(-1) + element.slice(0, -1);
-//     text.textContent = element ;
+    element = element.slice(-1) + element.slice(0, -1);
+    text.textContent = element ;
   
+  },3000)
 
+}
 
-
-
-//   },3000)
-
-
-
-
-
-// }
-
-// rotateString(text);
+rotateString(text);
 
 //6. Write a JavaScript program to determine whether a given year is a leap year in the Gregorian calendar.  
 
@@ -136,13 +128,13 @@ const randomNumber = Math.floor(Math.random()*10) +1 ;
 
 
 
-//const userInput = parseInt(prompt(`Guess a number between 1 to 10`))
+const userInput = parseInt(prompt(`Guess a number between 1 to 10`))
 
-// if(userInput===randomNumber){
-//   alert (`Good Work`)
-// }else {
-//   alert ('Number not matched')
-// }
+if(userInput===randomNumber){
+  alert (`Good Work`)
+}else {
+  alert ('Number not matched')
+}
 
 // 9. Write a JavaScript program to calculate the days left before Christmas.  
 
