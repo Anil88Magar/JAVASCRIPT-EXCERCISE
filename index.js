@@ -697,6 +697,168 @@ function move(str){
 
 console.log(move('lonelyshang'));
 
+//63. Write a JavaScript program to create a string using the middle three characters of a given string of odd length. The string length must be greater than or equal to three.  
+
+function middleThree(str){
+  if(str.length >= 3){
+    let middleStr = Math.floor(str.length/2);
+
+    return str.slice(middleStr -1 , middleStr+ 2);
+    
+  }
+}
+console.log(middleThree('lonelyshang'));
+
+//64. Write a JavaScript program to concatenate two strings and return the result. If the length of the strings does not match, then remove the characters from the longer string.  
+
+function twoStr(str1,str2){
+ str1.length > str2.length ? str1 = str1.slice(0,str2.length): str2 = str2.slice(0,str1.length)
+ return str1 + str2 ;
+}
+
+
+console.log(twoStr('anil','magar'));
+
+//65. Write a JavaScript program to test whether a string ends with " Script". The string length must be greater than or equal to 6.  
+
+function script (str){
+   if(str.length >= 6){
+     
+     return str.endsWith('script')
+   }
+}
+
+console.log(script('javascript'));
+
+//66. Write a JavaScript program to display the city name if the string begins with "Los" or "New" otherwise return blank. 
+
+function cityName (str){
+  if(str.startsWith('Los') || str.startsWith('New')){
+    return str;
+  }else {
+    return ""
+  }
+}
+
+console.log(cityName('New york'));
+console.log(cityName('Kathmandu'));
+
+//67. Write a JavaScript program to create a new string from a given string. This program removes the first and last characters of the string if the first or last character is 'P'. Return the original string if the condition is not satisfied.  
+
+function newString(str){
+  // if(str.startsWith('P') || str.endsWith('P')){
+  //   return str.slice(1,-1) 
+  // }else{
+  //   return str
+  // }
+
+  if(str.length > 1 && (str[1] === 'P' || str[str.length-1] === 'P' )){
+
+    return str.slice(1,-1)
+  }else{
+    return str
+  }
+}
+
+console.log(newString('kasthamandaP'));
+console.log(newString('Lonelyshang'));
+console.log(newString('Prata'));
+
+//68. Write a JavaScript program to create a new string using the first and last n characters from a given string. The string length must be larger than or equal to n.  
+
+function createNew(str,n){
+  if(str.length >= n){
+
+    return str.slice(0,n) + str.slice(-n)
+    
+ 
+  }else{
+    return str
+  }
+}
+console.log(createNew('javascript',4));
+console.log(createNew('lonelyshang',4));
+
+//69. Write a JavaScript program to compute the sum of three elements of a given array of integers of length 3.  
+
+function sumArray(arr){
+  if(arr.length === 3){
+    return arr[0] + arr[1] + arr[2]
+  }else{
+    return false
+  }
+}
+
+console.log(sumArray([1,2,3]));
+
+//70. Write a JavaScript program to rotate the elements left in a given array of integers of length 3.  
+
+function rotateArray(arr){
+  if(arr.length===3){
+
+    return [arr[2],arr[1],arr[0]]
+
+  }
+}
+
+console.log(rotateArray([1,2,3]));
+
+//71. Write a JavaScript program to check whether 1 appears in the first or last position of a given array of integers. The array length must be larger than or equal to 1.  
+
+function find1(arr){
+  if(arr.length >=1){
+    return arr[0]===1 || arr[arr.length -1]===1
+  }
+}
+
+console.log(find1([5,2,3,1]));
+
+//72. Write a JavaScript program to check whether the first and last elements are the same in a given array of integers of length 3. 
+
+function checkFirstLast(arr){
+  if(arr.length===3){
+    return arr[0] === arr[arr.length-1]
+  }
+}
+
+console.log(checkFirstLast([1,2,1]));
+
+//73. Write a JavaScript program to reverse the elements of a given array of integers of length 3.  
+
+const reverse = function(arr){
+  if(arr.length===3){
+    return arr.reverse()
+  }
+  return `Array length is not three`
+}
+
+console.log(reverse([4,5,6]));
+
+//74. Write a JavaScript program to find the largest value between the first and last elements and set all the other elements to that value. Display the updated array.  
+
+function findLargest(arr){
+  if(arr.length > 2){
+    let largest = Math.max(arr[0],arr[arr.length-1])
+
+   const newArray = arr.map(()=>largest)
+   return newArray
+  }
+}
+console.log(findLargest([10,20,30,40,50]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
