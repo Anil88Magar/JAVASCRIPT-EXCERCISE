@@ -846,6 +846,232 @@ function findLargest(arr){
 }
 console.log(findLargest([10,20,30,40,50]));
 
+//75. Write a JavaScript program to create an array taking the middle elements of the two arrays of integer and each length 3.  
+
+function middleELe(arr1,arr2){
+  let arr1Middle = arr1[Math.floor(arr1.length/2)];
+  let arr2Middle = arr2[Math.floor(arr2.length/2)];
+  let newArr = []
+  newArr.push(arr1Middle,arr2Middle)
+  return newArr
+  
+}
+
+console.log(middleELe([1,2,3,4,5],[6,7,8,9,]));
+
+//76. Write a JavaScript program to create an array by taking the first and last elements from a given array of integers. The length must be larger than or equal to 1.  
+
+function firstAndLast(arr){
+  if(arr.length >=1){
+  return [arr[0],arr[arr.length-1]]
+}else{return `Array length must be one or more`}
+}
+console.log(firstAndLast([1,2,3,4,5,6]));
+
+//77. Write a JavaScript program to test whether an array of integers of length 2 contains 1 or 3.  
+
+function test(arr){
+  if(arr.includes(1)||arr.includes(3)){
+    return true
+  }else false;
+}
+
+console.log(test([1,2,3]));
+
+//78. Write a JavaScript program to test whether an array of integers of length 2 does not contain 1 or 3.  
+
+function not13(arr){
+  if(!arr.includes(1) && !arr.includes(3)){
+    return true
+  }else 
+  return false
+}
+
+console.log(not13([1,2,3]));
+
+//79. Write a JavaScript program to test whether a given array of integers contains 30 and 40 twice. The array length should be 0, 1, or 2.  
+
+function find3040(arr){
+  if(arr.length >=1 && arr.length <=2){
+    const thirty = arr.includes(30)
+    const fourty = arr.includes(40)
+
+    return thirty && fourty
+  }
+}
+console.log(find3040([30,40]));
+
+//80. Write a JavaScript program to swap the first and last elements of a given array of integers. The array length should be at least 1. 
+
+const swap= function(arr){
+  if(arr.length >=1){
+   let first = arr[0]
+   let last = arr[arr.length-1]
+
+   arr[0] = last;
+   arr[arr.length-1] = first
+
+   
+   return arr;
+  }
+}
+
+console.log(swap([2,7]));
+
+
+//81.  Write a JavaScript program to add two digits to a given positive integer of length two.  
+
+function addTwo(arr){
+   const numStr = arr.toString();
+   const digit1 = parseInt(numStr[0],10)
+   const digit2 = parseInt(numStr[1],10)
+
+    let sum = digit1 + digit2;
+    return sum;
+
+}
+
+console.log(addTwo(59));
+
+//83. Write a JavaScript program to find the longest string from a given array of strings.
+
+const findLongest = (arr) =>{
+
+return   arr.reduce((longest,current) =>{
+   return current.length > longest.length ? current : longest
+   })
+  }
+
+
+console.log(findLongest(['apple','banana','grapes']));
+
+//84. Write a JavaScript program to replace each character in a given string with the next in the English alphabet.  
+
+function replace (str){
+return str.split('').map(char=>{
+  let charCode= char.charCodeAt(0)
+  if(charCode==='z')return 'a';
+  if(charCode==='Z') return 'A';
+  else {
+    return String.fromCharCode(charCode +1);
+  }
+})
+.join('').toUpperCase()
+}
+console.log(replace('lonelYshanG'));
+
+//85.Write a JavaScript program to divide a given array of positive integers into two parts. First element belongs to the first part, second element belongs to the second part, and third element belongs to the first part and so on. Now compute the sum of two parts and store it in an array of size two.  
+
+function divideArray(arr){
+  let odd= 0
+  let even = 0
+
+  arr.forEach((num,index) =>{
+    if(index % 2 ===0){
+      even = even+num
+    }else{
+       odd= odd+num
+    }
+
+    
+  })
+  return [odd,even]
+}
+
+console.log(divideArray([1, 2, 3, 4, 5]));
+
+//86. Write a JavaScript program to find the types of a given angle.  
+
+function angleType(num){
+  if(num <90) return 'acute angle'
+  if(num=== 90) return 'right angle'
+  if(num>=90 && num <= 180) return 'obtuse angle'
+  if(num===180) return 'straight angle'
+}
+
+console.log(angleType(155));
+
+//87. Write a JavaScript program to determine if two arrays of integers of the same length are similar. The arrays will be similar if one array can be obtained from another array by swapping at most one pair of elements.  
+
+function areSimilar(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+        return false;  // Arrays of different lengths can't be similar
+    }
+
+    // If the arrays are already identical
+    if (arr1.toString() === arr2.toString()) {
+        return true;
+    }
+
+    // Collect the positions where the arrays differ
+    let diff = [];
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            diff.push(i);
+        }
+    }
+
+    // Check if they differ at exactly 2 positions and if swapping resolves it
+    return diff.length === 2 &&
+           arr1[diff[0]] === arr2[diff[1]] &&
+           arr1[diff[1]] === arr2[diff[0]];
+}
+
+// Example usage:
+console.log(areSimilar([1, 2, 3], [1, 3, 2]));  // true
+console.log(areSimilar([1, 2, 3], [2, 1, 3]));  // false
+console.log(areSimilar([1, 2, 2], [2, 1, 2]));  // true
+
+//88. Write a JavaScript program that takes two integers and a divisor. If the given divisor divides both integers and does not divide either, two specified integers are similar. Check whether two integers are similar or not.  
+
+function areIntegersSimilar(int1, int2, divisor) {
+    // Check if both integers are divisible by the divisor
+    if (int1 % divisor === 0 && int2 % divisor === 0) {
+        return true;
+    }
+    // Check if neither of the integers is divisible by the divisor
+    else if (int1 % divisor !== 0 && int2 % divisor !== 0) {
+        return true;
+    }
+    // Otherwise, the integers are not similar
+    return false;
+}
+
+// Example usage:
+console.log(areIntegersSimilar(10, 20, 5));   // true (both are divisible by 5)
+console.log(areIntegersSimilar(7, 9, 2));     // true (neither is divisible by 2)
+console.log(areIntegersSimilar(15, 8, 3));    // false (15 is divisible by 3, but 8 is not)
+console.log(areIntegersSimilar(12, 18, 6));   // true (both are divisible by 6)
+
+//89. Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression.  
+function checkExpression(x, y, z) {
+    // Check each operation and see if it produces z
+    if (x + y === z) {
+        return `${x} + ${y} = ${z} is correct`;
+    }
+    if (x - y === z) {
+        return `${x} - ${y} = ${z} is correct`;
+    }
+    if (x * y === z) {
+        return `${x} * ${y} = ${z} is correct`;
+    }
+    if (y !== 0 && x / y === z) {  // Ensure division by zero is avoided
+        return `${x} / ${y} = ${z} is correct`;
+    }
+    
+    // If no operation works, return this message
+    return `No operator can make ${x} $ ${y} = ${z} correct.`;
+}
+
+// Example usage:
+console.log(checkExpression(5, 3, 8));   // "5 + 3 = 8 is correct"
+console.log(checkExpression(10, 2, 5));  // "10 / 2 = 5 is correct"
+console.log(checkExpression(6, 4, 24));  // "6 * 4 = 24 is correct"
+console.log(checkExpression(9, 3, 5));   // "No operator can make 9 $ 3 = 5 correct."
+
+
+
+
 
 
 
